@@ -92,7 +92,7 @@ jobs:
       ULSrc: ${{ steps.set-matrix.outputs.ULSrc }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: 'main'
       - name: GitHub Auth
@@ -212,7 +212,7 @@ jobs:
       matrixJobCount: ${{ needs.generator.outputs.matrixJobCount }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: 'main'
       - name: GitHub Auth
@@ -844,7 +844,7 @@ jobs:
       SourceWidth: ${{ needs.generator.outputs.SourceWidth }}
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: 'main'
       - name: GitHub Auth
