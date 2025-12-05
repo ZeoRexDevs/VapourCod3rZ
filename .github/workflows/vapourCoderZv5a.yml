@@ -167,14 +167,14 @@ jobs:
           jobIdentifier: "generator"
       - name: Upload localVS.tar.gz as Artifact
         if: success() && env.runID4localVS == ''
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: localVS
           path: /data/localVS.tar.gz
           retention-days: 6
           compression-level: 0
       - name: Upload Scene JSON as Artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: scenejson
           path: /data/scenes.json
@@ -182,7 +182,7 @@ jobs:
           compression-level: 9
       - name: Upload Source Media Parts as Artifact
         if: env.ULSrc == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: artifact
           path: /data/app/videos/${{env.ShowName}}.${{env.EpLabel}}.SOURCE.mkv.*
@@ -378,7 +378,7 @@ jobs:
           StateZ: "FLT"
       - name: Upload Filtered Scene (y4m > ffv1 mkv) as artifact
         if: success() && env.ffv1Generator == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           path: "/data/app/videos/${{env.FilteredVideoChunk}}"
           name: "${{env.EpLabel}}.${{env.VidResH}}p.${{env.ChunkID}}.ffv1"
@@ -485,7 +485,7 @@ jobs:
           StateZ: "FLT"
       - name: Upload Filtered Scene (y4m > ffv1 mkv) as artifact
         if: success() && env.IterCount >= '2' && env.ffv1Generator == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           path: "/data/app/videos/${{env.FilteredVideoChunk}}"
           name: "${{env.EpLabel}}.${{env.VidResH}}p.${{env.ChunkID}}.ffv1"
@@ -592,7 +592,7 @@ jobs:
           StateZ: "FLT"
       - name: Upload Filtered Scene (y4m > ffv1 mkv) as artifact
         if: success() && env.IterCount >= '3' && env.ffv1Generator == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           path: "/data/app/videos/${{env.FilteredVideoChunk}}"
           name: "${{env.EpLabel}}.${{env.VidResH}}p.${{env.ChunkID}}.ffv1"
@@ -699,7 +699,7 @@ jobs:
           StateZ: "FLT"
       - name: Upload Filtered Scene (y4m > ffv1 mkv) as artifact
         if: success() && env.IterCount >= '4' && env.ffv1Generator == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           path: "/data/app/videos/${{env.FilteredVideoChunk}}"
           name: "${{env.EpLabel}}.${{env.VidResH}}p.${{env.ChunkID}}.ffv1"
@@ -806,7 +806,7 @@ jobs:
           StateZ: "FLT"
       - name: Upload Filtered Scene (y4m > ffv1 mkv) as artifact
         if: success() && env.IterCount >= '5' && env.ffv1Generator == 'true'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           path: "/data/app/videos/${{env.FilteredVideoChunk}}"
           name: "${{env.EpLabel}}.${{env.VidResH}}p.${{env.ChunkID}}.ffv1"
@@ -888,7 +888,7 @@ jobs:
           eval 'set -o history' 2>/dev/null
       - name: Upload VapourCod3d Video Stream as Artifact
         if: success()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           path: /data/${{env.FinalEncodedVideo}}
           name: ${{env.ShowName}}.${{env.EpLabel}}.Q${{env.QScale}}.VapourCod3d.Result
