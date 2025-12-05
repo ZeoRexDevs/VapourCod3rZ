@@ -146,7 +146,7 @@ jobs:
       - name: Download localVS.tar.gz from [runID4localVS //> Artifact]
         if: env.runID4localVS != ''
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: localVS
           path: /data/
@@ -243,7 +243,7 @@ jobs:
       - name: Download localVS.tar.gz from [runID4localVS //> Artifact]
         if: env.runID4localVS != ''
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: localVS
           path: /data/
@@ -252,7 +252,7 @@ jobs:
       - name: Download localVS.tar.gz from Artifact
         if: env.runID4localVS == ''
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: localVS
           path: /data/
@@ -274,13 +274,13 @@ jobs:
           jobIdentifier: "synthesizer"
       - name: Download Scene JSON from Artifact @ Self
         if: env.runID4SCArt == ''
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: scenejson
           path: /data/app/tmp/
       - name: Download Scene JSON from [runID4SCArt //> Artifact]
         if: env.runID4SCArt != ''
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: scenejson
           path: /data/app/tmp/
@@ -318,7 +318,7 @@ jobs:
       - name: Try Downloading Filtered Scene (ffv1 mkv) from [runID4Flt //> Artifact]
         if: ( env.runID4Flt != '' && env.rescaleFilteredVid != 'true' )
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: "${{env.EpLabel}}.${{env.VidResH}}p.${{env.ChunkID}}.ffv1"
           path: /data/app/artifact/
@@ -327,7 +327,7 @@ jobs:
       - name: Try Downloading Scaled Filtered Scene (ffv1 mkv) from [runID4Flt //> Artifact]
         if: ( env.runID4Flt != '' && env.rescaleFilteredVid == 'true' )
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: "${{env.EpLabel}}.${{env.fltResH}}p.${{env.ChunkID}}.ffv1"
           path: /data/app/artifact/
@@ -347,7 +347,7 @@ jobs:
           fi
       - name: Download Source Media Parts from Artifact @ Self
         if: env.ffv1Generator != 'false' && env.runID4Art == '' && env.ULSrc == 'true'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: artifact
           path: /data/app/artifact/
@@ -355,7 +355,7 @@ jobs:
           # run-id: ${{ github.run_id }}
       - name: Download Source Media Parts from [runID4Art //> Artifact]
         if: env.ffv1Generator != 'false' && env.runID4Art != ''
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: artifact
           path: /data/app/artifact/
@@ -424,7 +424,7 @@ jobs:
       - name: Try Downloading Filtered Scene (ffv1 mkv) from [runID4Flt //> Artifact]
         if: env.IterCount >= '2' && ( env.runID4Flt != '' && env.rescaleFilteredVid != 'true' )
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: "${{env.EpLabel}}.${{env.VidResH}}p.${{env.ChunkID}}.ffv1"
           path: /data/app/artifact/
@@ -433,7 +433,7 @@ jobs:
       - name: Try Downloading Scaled Filtered Scene (ffv1 mkv) from [runID4Flt //> Artifact]
         if: env.IterCount >= '2' && ( env.runID4Flt != '' && env.rescaleFilteredVid == 'true' )
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: "${{env.EpLabel}}.${{env.fltResH}}p.${{env.ChunkID}}.ffv1"
           path: /data/app/artifact/
@@ -454,7 +454,7 @@ jobs:
           fi
       - name: Download Source Media Parts from Artifact @ Self
         if: ( env.IterCount >= '2' && env.HasSrcVid != 'true' ) && env.ffv1Generator != 'false' && env.runID4Art == '' && env.ULSrc == 'true'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: artifact
           path: /data/app/artifact/
@@ -462,7 +462,7 @@ jobs:
           # run-id: ${{ github.run_id }}
       - name: Download Source Media Parts from [runID4Art //> Artifact]
         if: ( env.IterCount >= '2' && env.HasSrcVid != 'true' ) && env.ffv1Generator != 'false' && env.runID4Art != ''
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: artifact
           path: /data/app/artifact/
@@ -531,7 +531,7 @@ jobs:
       - name: Try Downloading Filtered Scene (ffv1 mkv) from [runID4Flt //> Artifact]
         if: env.IterCount >= '3' && ( env.runID4Flt != '' && env.rescaleFilteredVid != 'true' )
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: "${{env.EpLabel}}.${{env.VidResH}}p.${{env.ChunkID}}.ffv1"
           path: /data/app/artifact/
@@ -540,7 +540,7 @@ jobs:
       - name: Try Downloading Scaled Filtered Scene (ffv1 mkv) from [runID4Flt //> Artifact]
         if: env.IterCount >= '3' && ( env.runID4Flt != '' && env.rescaleFilteredVid == 'true' )
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: "${{env.EpLabel}}.${{env.fltResH}}p.${{env.ChunkID}}.ffv1"
           path: /data/app/artifact/
@@ -561,7 +561,7 @@ jobs:
           fi
       - name: Download Source Media Parts from Artifact @ Self
         if: ( env.IterCount >= '3' && env.HasSrcVid != 'true' ) && env.ffv1Generator != 'false' && env.runID4Art == '' && env.ULSrc == 'true'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: artifact
           path: /data/app/artifact/
@@ -569,7 +569,7 @@ jobs:
           # run-id: ${{ github.run_id }}
       - name: Download Source Media Parts from [runID4Art //> Artifact]
         if: ( env.IterCount >= '3' && env.HasSrcVid != 'true' ) && env.ffv1Generator != 'false' && env.runID4Art != ''
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: artifact
           path: /data/app/artifact/
@@ -638,7 +638,7 @@ jobs:
       - name: Try Downloading Filtered Scene (ffv1 mkv) from [runID4Flt //> Artifact]
         if: env.IterCount >= '4' && ( env.runID4Flt != '' && env.rescaleFilteredVid != 'true' )
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: "${{env.EpLabel}}.${{env.VidResH}}p.${{env.ChunkID}}.ffv1"
           path: /data/app/artifact/
@@ -647,7 +647,7 @@ jobs:
       - name: Try Downloading Scaled Filtered Scene (ffv1 mkv) from [runID4Flt //> Artifact]
         if: env.IterCount >= '4' && ( env.runID4Flt != '' && env.rescaleFilteredVid == 'true' )
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: "${{env.EpLabel}}.${{env.fltResH}}p.${{env.ChunkID}}.ffv1"
           path: /data/app/artifact/
@@ -668,7 +668,7 @@ jobs:
           fi
       - name: Download Source Media Parts from Artifact @ Self
         if: ( env.IterCount >= '4' && env.HasSrcVid != 'true' ) && env.ffv1Generator != 'false' && env.runID4Art == '' && env.ULSrc == 'true'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: artifact
           path: /data/app/artifact/
@@ -676,7 +676,7 @@ jobs:
           # run-id: ${{ github.run_id }}
       - name: Download Source Media Parts from [runID4Art //> Artifact]
         if: ( env.IterCount >= '4' && env.HasSrcVid != 'true' ) && env.ffv1Generator != 'false' && env.runID4Art != ''
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: artifact
           path: /data/app/artifact/
@@ -745,7 +745,7 @@ jobs:
       - name: Try Downloading Filtered Scene (ffv1 mkv) from [runID4Flt //> Artifact]
         if: env.IterCount >= '5' && ( env.runID4Flt != '' && env.rescaleFilteredVid != 'true' )
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: "${{env.EpLabel}}.${{env.VidResH}}p.${{env.ChunkID}}.ffv1"
           path: /data/app/artifact/
@@ -754,7 +754,7 @@ jobs:
       - name: Try Downloading Scaled Filtered Scene (ffv1 mkv) from [runID4Flt //> Artifact]
         if: env.IterCount >= '5' && ( env.runID4Flt != '' && env.rescaleFilteredVid == 'true' )
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: "${{env.EpLabel}}.${{env.fltResH}}p.${{env.ChunkID}}.ffv1"
           path: /data/app/artifact/
@@ -775,7 +775,7 @@ jobs:
           fi
       - name: Download Source Media Parts from Artifact @ Self
         if: ( env.IterCount >= '5' && env.HasSrcVid != 'true' ) && env.ffv1Generator != 'false' && env.runID4Art == '' && env.ULSrc == 'true'
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: artifact
           path: /data/app/artifact/
@@ -783,7 +783,7 @@ jobs:
           # run-id: ${{ github.run_id }}
       - name: Download Source Media Parts from [runID4Art //> Artifact]
         if: ( env.IterCount >= '5' && env.HasSrcVid != 'true' ) && env.ffv1Generator != 'false' && env.runID4Art != ''
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: artifact
           path: /data/app/artifact/
@@ -898,7 +898,7 @@ jobs:
       - name: Download Source Media Parts from Artifact @ Self
         if: success() && ( env.runID4Art == '' || env.runID4SSArt == 'SELF' )
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: artifact
           path: /data/app/artifact/
@@ -907,7 +907,7 @@ jobs:
       - name: Download Source Media Parts from [runID4Art //> Artifact]
         if: success() && env.runID4Art != ''
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: artifact
           path: /data/app/artifact/
@@ -916,7 +916,7 @@ jobs:
       - name: Download Source Media Parts from [runID4SSArt //> Artifact]
         if: success() && env.runID4Flt != '' && ( env.runID4SSArt != '' && env.runID4SSArt != 'SELF' )
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: artifact
           path: /data/app/artifact/
@@ -924,13 +924,13 @@ jobs:
           run-id: ${{ env.runID4SSArt }}
       - name: Download Scene JSON from Artifact @ Self
         if: env.runID4SCArt == ''
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: scenejson
           path: /data/app/tmp/
       - name: Download Scene JSON from [runID4SCArt //> Artifact]
         if: env.runID4SCArt != ''
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: scenejson
           path: /data/app/tmp/
@@ -945,7 +945,7 @@ jobs:
       - name: Download localVS.tar.gz from [runID4localVS //> Artifact]
         if: env.runID4localVS != ''
         continue-on-error: true
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: localVS
           path: /data/
