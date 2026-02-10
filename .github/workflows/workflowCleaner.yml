@@ -6,21 +6,20 @@ on:
     - cron: '1 1 2 * *'
   workflow_dispatch:
     inputs:
-      days_old:
-        description: "The amount of days old to delete"
-        default: "10"
+      runs_older_than:
+        description: "Last X Days' Logs To Keep"
+        default: "12"
         required: false
 env:
-  SCHEDULED_DAYS_OLD: "10"
+  SCHEDULED_RUNS_OLDER_THAN: "12"
 
 jobs:
   clean-logs:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-lite
+    permissions:
+      actions: write
     steps:
       - uses: igorjs/gh-actions-clean-workflow@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          owner: ${{ github.repository_owner }}
-          repo: ${{ github.event.repository.name }}
-          days_old: ${{ github.event.inputs.days_old || env.SCHEDULED_DAYS_OLD }}
-
+          runs_older_than: ${{ github.event.inputs.runs_older_than || env.SCHEDULED_RUNS_OLDER_THAN }} # optional
