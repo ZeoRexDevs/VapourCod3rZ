@@ -15,7 +15,7 @@ env:
 
 jobs:
   clean-logs:
-    runs-on: ubuntu-lite
+    runs-on: ubuntu-latest
     permissions:
       actions: write
     steps:
